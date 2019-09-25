@@ -1,72 +1,26 @@
-html,
-    body {
-      width: 800px;
-      margin: 0 auto;
-      background: gray;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-    h1{
-      color: white;
-    }
-    canvas {
-      margin: 0 auto;
-      background: white;
-    }
-
-    canvas {
-      border: 1px black solid;
-    }
-
-    button {
-      border: 1px solid white;
-    }
-    input {
-      position: relative;
-      top: 6px;
-    }
-    #red {
-      color: red;
-      background: red;
-    }
-
-    #orange {
-      color: orange;
-      background: orange;
-    }
-
-    #yellow {
-      color: yellow;
-      background: yellow;
-    }
-
-    #green {
-      color: green;
-      background: green;
-    }
-
-    #blue {
-      color: blue;
-      background: blue;
-    }
-    #cyan {
-      color: cyan;
-      background: cyan;
-    }
-    #purple {
-      color: purple;
-      background: purple;
-    }
-    #violet {
-      color: violet;
-      background: violet;
-    }
-
-    #black {
-      color: black;
-      background: black;
-    }
-
-    #currentColor {
-      background: black;
-
-    }
+body {
+  font-family: 'Roboto Condensed', serif;
+}
+.main {
+  display: flex;
+  justify-content: center;
+}
+.color-guide {
+  margin: 20px 40px;
+}
+h5 {
+  margin-bottom: 10px;
+}
+.user {
+  padding: 7px 15px;
+  border-radius: 4px;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  background: #EE92C2;
+  margin: 10px 0;
+}
+.guest {
+  background: #F0C987;
+  color: white;
+}
