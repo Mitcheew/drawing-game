@@ -23,6 +23,8 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(express.static(`${__dirname}/../build`));
+
 app.post('/paint', (req, res) => {
     pusher.trigger('painting', 'draw', req.body);
     res.json(req.body);
