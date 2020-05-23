@@ -8,7 +8,7 @@ class Canvas extends Component {
         this.onMouseDown = this.onMouseDown.bind(this);
         this.onMouseMove = this.onMouseMove.bind(this);
         this.endPaintEvent = this.endPaintEvent.bind(this);
-        this.pusher = new Pusher(`9988d0be796cc315a0af`, {
+        this.pusher = new Pusher(process.env.REACT_APP_KEY, {
             cluster: 'us3',
         });
     }
@@ -39,6 +39,9 @@ class Canvas extends Component {
             };
             // Add the position to the line array
             this.line = this.line.concat(positionData);
+            if(this.line.length >= 100){
+                this.sendPaintData()
+            }
             this.paint(this.prevPos, offSetData, this.userStrokeStyle);
         }
     }
@@ -63,20 +66,20 @@ class Canvas extends Component {
         this.prevPos = { offsetX, offsetY };
     }
 
-    async sendPaintData() {
+    sendPaintData() {
         const body = {
             line: this.line,
             userId: this.userId,
         };
         // We use the native fetch API to make requests to the server
-        const req = await fetch('/paint', {
+        fetch('/paint', {
             method: 'post',
             body: JSON.stringify(body),
             headers: {
                 'content-type': 'application/json',
             },
         });
-        const res = await req.json();
+        // const res = await req.json();
         this.line = [];
     }
 
